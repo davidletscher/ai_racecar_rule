@@ -18,8 +18,8 @@ def run(track, car, agent, visualizer):
 		maxSpeed = max(maxSpeed, obs['velocity'])
 		if visualizer:
 			visualizer.update(car, track.getLidar((car._x, car._y), car._d), totalReward, action)
-			lidar = [f'{x:.2}' for x in obs['lidar']]
-			lidar = ', '.join(lidar)
+		lidar = [f'{x:.2}' for x in obs['lidar']]
+		lidar = ', '.join(lidar)
 		print(f'Iteration {iteration}.  State is {car}.  Distance to center: {track.distance((car._x,car._y)):.2f}, Distance from start {track.distanceTravelled(car._x,car._y):.2f}, Lidar {lidar}, Velocity {obs["velocity"]:.2f}, Choosing action {action}, reward {reward:.2f} and totalReward {totalReward:.2f}.')
 
 	if visualizer:
